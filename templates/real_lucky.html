@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>--Red Envelope for 2020--</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body background="/static/background.jpg">
+<section class="hero is-fullheight">
+  <div id="app" class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column">
+          <form class="box" method="dialog">
+            <div class="title has-text-centered">
+              --- Wishes for 2020 ---
+            </div>
+            <table class="table is-striped is-fullwidth">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Time</th>
+                  <th>Name</th>
+                  <th>Wishes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for id, v in data.items() %}
+                  <tr>
+                    <td>{{id}}</td>
+                    <td>{{v[0]}}</td>
+                    <td>{{v[1]}}</td>
+                    <td>{{v[2]}}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </form>
+          <form class="box" method="post">
+            <div class="title has-text-centered">
+              --- Leave a message here! ---
+            </div>
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <input name="name" class="input" type="text" placeholder="Please enter your name here...">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Message</label>
+              <div class="control">
+                <input name="message" class="input" type="text" placeholder="Please enter your message here...">
+              </div>
+            </div>
+            <div class="field has-text-centered">
+              <button class="button is-success" onclick="alert('Secret Code: XXXXXXXX')">
+                Submit!
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

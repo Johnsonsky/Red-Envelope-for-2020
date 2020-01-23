@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>--Red Envelope for 2020--</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body background="/static/background.jpg">
+<section class="hero is-fullheight">
+  <div id="app" class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column">
+          <form class="box" method="dialog">
+            <div class="title has-text-centered">
+              --- Red Envelope for 2020 ---
+            </div>
+            <div class="column has-text-centered">
+              富强福：{[ fuqiang ]} 张
+            </div>
+            <div class="column has-text-centered">
+              爱国福：{[ aiguo ]} 张
+            </div>
+            <div class="column has-text-centered">
+              和谐福：{[ hexie ]} 张
+            </div>
+            <div class="column has-text-centered">
+              友善福：{[ youshan ]} 张
+            </div>
+            <div class="column has-text-centered">
+              敬业福：{[ jingye ]} 张
+            </div>
+          </form>
+          <div class="field has-text-centered">
+            <button class="button is-danger" v-on:click="luckyclick">
+              Happy New Year, {[ secret ]}!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  var hongbao = new Vue({
+    delimiters:['{[', ']}'],
+    el: '#app',
+    data: {
+      fuqiang: 0,
+      aiguo: 0,
+      hexie: 0,
+      youshan: 0,
+      jingye: 0,
+      secret: 2020
+    },
+    methods: {
+      luckyclick: function() {
+        var ret = Math.floor(Math.random() * 4);
+        if (ret == 0) hongbao.fuqiang++, alert('祝您新年愉快，一张富强福献上！');
+        else if (ret == 1) hongbao.aiguo++, alert('祝您新年愉快，一张爱国福献上！');
+        else if (ret == 2) hongbao.hexie++, alert('祝您新年愉快，一张和谐福献上！');
+        else if (ret == 3) hongbao.youshan++, alert('祝您新年愉快，一张友善福献上！');
+        else hongbao.jingye++, alert('哇！您的运气真好！一张敬业福献上！');
+        if (hongbao.fuqiang > 0 && hongbao.aiguo > 0 && hongbao.hexie > 0 && hongbao.youshan > 0 && hongbao.jingye > 0) {
+          alert('五福到，好运到，稍等片刻，红包献上！');
+          alert('不过，您知道她的生日吗？它应该写在哪里呢？');
+        }
+      }
+    }
+  })
+</script>
+<!-- Try a url like '/password' ? -->
+</body>
+</html>
